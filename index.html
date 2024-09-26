@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Enson Technologies - Solar Installation</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        /* Global Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        .navbar {
+            background-color: #003366; /* Navy Blue */
+        }
+        .navbar-brand, .nav-link {
+            color: #ffdd59 !important; /* Gold */
+        }
+        .hero-section {
+            background: linear-gradient(to right, #4CAF50, #003366); /* Green and Navy Blue */
+            height: 100vh;
+            color: #fff;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            animation: fadeIn 2s;
+        }
+        .hero-section h1 {
+            font-size: 4rem;
+            color: #ffdd59; /* Gold */
+            animation: slideInLeft 1.5s;
+        }
+        .hero-section p {
+            animation: slideInRight 1.5s;
+        }
+        .hero-section .btn {
+            margin-top: 20px;
+            background-color: #003366; /* Navy Blue */
+            border: none;
+            color: #fff;
+            padding: 15px 30px;
+            animation: pulse 2s infinite;
+        }
+        .services-section, .about-section {
+            padding: 4rem 0;
+        }
+        .about-section {
+            background-color: #ffeb3b; /* Soft Yellow */
+        }
+        .section-heading {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #4CAF50; /* Green */
+            animation: zoomIn 1s;
+        }
+        .service-box {
+            border: 1px solid #ddd;
+            padding: 2rem;
+            margin: 1rem;
+            border-radius: 10px;
+            transition: transform 0.3s ease-in-out;
+            background-color: #fff;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        .service-box:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        .contact-section {
+            background-color: #4CAF50; /* Green */
+            color: #fff;
+            padding: 4rem 0;
+            animation: fadeInUp 1s;
+        }
+        footer {
+            background-color: #003366; /* Navy Blue */
+            color: #fff;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        footer a {
+            color: #ffdd59; /* Gold */
+            text-decoration: none;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        @keyframes slideInLeft {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(0); }
+        }
+        @keyframes slideInRight {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(0); }
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        @keyframes zoomIn {
+            0% { transform: scale(0); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        @keyframes fadeInUp {
+            0% { transform: translateY(100px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Responsive Styling */
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2.5rem;
+            }
+            .service-box {
+                margin-bottom: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#">Enson Technologies</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#services">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <h1>Welcome to Enson Technologies</h1>
+        <p>Your trusted partner for solar energy solutions</p>
+        <a href="#" class="btn btn-lg">Get a Free Quote</a>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <h2 class="section-heading">About Us</h2>
+            <p>At Enson Technologies, we are dedicated to providing cutting-edge solar solutions that meet the needs of both residential and commercial customers. Our mission is to create a sustainable future through renewable energy.</p>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section" id="services">
+        <div class="container">
+            <h2 class="section-heading">Our Services</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="service-box">
+                        <h3>Residential Solar</h3>
+                        <p>We offer customized solar energy solutions for homes that reduce energy costs and contribute to a cleaner environment.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-box">
+                        <h3>Commercial Solar</h3>
+                        <p>Our team provides solar solutions for businesses looking to improve their energy efficiency and save on electricity costs.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-box">
+                        <h3>Solar Maintenance</h3>
+                        <p>Regular maintenance ensures that your solar system is always running at maximum efficiency, giving you peace of mind.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <h2 class="section-heading">Get In Touch</h2>
+            <form>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea class="form-control" id="message" rows="4" placeholder="Your Message" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-light">Submit</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Enson Technologies. All Rights Reserved.</p>
+        <p>Follow us on: 
+            <a href="#">Facebook</a> | 
+            <a href="#">LinkedIn</a> | 
+            <a href="#">Twitter</a>
+        </p>
+    </footer>
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
