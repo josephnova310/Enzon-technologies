@@ -1,0 +1,124 @@
+/* Global Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #000000;
+}
+.navbar {
+    background-color: rgba(0, 0, 0, 0.205); /*  Semi-transparent Navy Blue */
+    backdrop-filter: blur(10px); /* Blur effect */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+.navbar-brand, .nav-link {
+    color: #ffffff !important; /* Gold */
+    
+}
+
+/* Hero Section */
+.hero-section {
+    background-image: url('chris%20cool.jpg');
+    height: 100vh;
+    color: #ffffff00;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    animation: fadeIn 2s;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+.hero-section h1 {
+    font-size: 5rem;
+    color: #f5f5f5;
+    animation: slideInLeft 1.5s;
+}
+.hero-section p {
+    animation: slideInRight 1.5s;
+}
+.hero-section .btn {
+    margin-top: 20px;
+    background-color: #003366;
+    border: none;
+    color: #ffffff;
+    padding: 15px 30px;
+    animation: pulse 2s infinite;
+}
+
+/* About and Services */
+.services-section, .about-section {
+    padding: 4rem 0;
+}
+.about-section {
+    background-color: #ffeb3b;
+}
+.section-heading {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #4CAF50;
+    animation: zoomIn 1s;
+}
+.service-box {
+    border: 1px solid #ddd;
+    padding: 2rem;
+    margin: 1rem;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+    background-color: #fff;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+}
+.service-box:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Contact Section */
+.contact-section {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 4rem 0;
+    animation: fadeInUp 1s;
+}
+
+/* Footer */
+footer {
+    background-color: #003366;
+    color: #fff;
+    text-align: center;
+    padding: 2rem 0;
+}
+footer a {
+    color: #ffdd59;
+    text-decoration: none;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+@keyframes slideInLeft {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(0); }
+}
+@keyframes slideInRight {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(0); }
+}
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+@keyframes zoomIn {
+    0% { transform: scale(0); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+@keyframes fadeInUp {
+    0% { transform: translateY(100px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
