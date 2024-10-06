@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,135 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Enzon Technologies - Solar Installation</title>
+    
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
     <!-- Custom CSS -->
-    <style>
-        /* Global Styling */
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            color: #333;
-        }
-        .navbar {
-            background-color: #003366; /* Navy Blue */
-        }
-        .navbar-brand, .nav-link {
-            color: #ffdd59 !important; /* Gold */
-        }
-        .hero-section {
-            background: linear-gradient(to right, #4CAF50, #003366); /* Green and Navy Blue */
-            height: 100vh;
-            color: #fff;
-            text-align: center;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            animation: fadeIn 2s;
-        }
-        .hero-section h1 {
-            font-size: 4rem;
-            color: #ffdd59; /* Gold */
-            animation: slideInLeft 1.5s;
-        }
-        .hero-section p {
-            animation: slideInRight 1.5s;
-        }
-        .hero-section .btn {
-            margin-top: 20px;
-            background-color: #003366; /* Navy Blue */
-            border: none;
-            color: #fff;
-            padding: 15px 30px;
-            animation: pulse 2s infinite;
-        }
-        .services-section, .about-section {
-            padding: 4rem 0;
-        }
-        .about-section {
-            background-color: #ffeb3b; /* Soft Yellow */
-        }
-        .section-heading {
-            text-align: center;
-            margin-bottom: 3rem;
-            color: #4CAF50; /* Green */
-            animation: zoomIn 1s;
-        }
-        .service-box {
-            border: 1px solid #ddd;
-            padding: 2rem;
-            margin: 1rem;
-            border-radius: 10px;
-            transition: transform 0.3s ease-in-out;
-            background-color: #fff;
-            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-        }
-        .service-box:hover {
-            transform: scale(1.1);
-            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
-        }
-        .contact-section {
-            background-color: #4CAF50; /* Green */
-            color: #fff;
-            padding: 4rem 0;
-            animation: fadeInUp 1s;
-        }
-        footer {
-            background-color: #003366; /* Navy Blue */
-            color: #fff;
-            text-align: center;
-            padding: 2rem 0;
-        }
-        footer a {
-            color: #ffdd59; /* Gold */
-            text-decoration: none;
-        }
-
-        /* Animations */
-        @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-        @keyframes slideInLeft {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(0); }
-        }
-        @keyframes slideInRight {
-            0% { transform: translateX(100%); }
-            100% { transform: translateX(0); }
-        }
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
-        }
-        @keyframes zoomIn {
-            0% { transform: scale(0); opacity: 0; }
-            100% { transform: scale(1); opacity: 1; }
-        }
-        @keyframes fadeInUp {
-            0% { transform: translateY(100px); opacity: 0; }
-            100% { transform: translateY(0); opacity: 1; }
-        }
-
-        /* Responsive Styling */
-        @media (max-width: 768px) {
-            .hero-section h1 {
-                font-size: 2.5rem;
-            }
-            .service-box {
-                margin-bottom: 1.5rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark">
-        <a class="navbar-brand" href="#">Enzon Technologies</a>
+        <a class="navbar-brand" href="#"><h4>Enzon Technologies</h4></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -157,7 +40,7 @@
 
     <!-- Hero Section -->
     <section class="hero-section">
-        <h1>Welcome to Enzon Technologies</h1>
+        <h1>Are you looking for the perfect solar partner?</h1>
         <p>Your trusted partner for solar energy solutions</p>
         <a href="#" class="btn btn-lg">Get a Free Quote</a>
     </section>
@@ -229,4 +112,12 @@
         </p>
     </footer>
 
-    <!-- Bootstrap JS, Popper.js, and jQuery --> 
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+</html>
