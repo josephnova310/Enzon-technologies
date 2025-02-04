@@ -107,7 +107,7 @@
         <h2>🔑 Riddle 1</h2>
         <p>What is full of holes but still holds water?</p>
         <input type="text" id="answer1">
-        <button class="button" onclick="checkAnswer(1, 'sponge')">Submit</button>
+        <button class="button" onclick="checkAnswer(1)">Submit</button>
         <p id="message1" class="message"></p>
     </div>
 
@@ -115,7 +115,7 @@
         <h2>🔑 Riddle 2</h2>
         <p>What has to be broken before you can use it?</p>
         <input type="text" id="answer2">
-        <button class="button" onclick="checkAnswer(2, 'egg')">Submit</button>
+        <button class="button" onclick="checkAnswer(2)">Submit</button>
         <p id="message2" class="message"></p>
     </div>
 
@@ -123,7 +123,7 @@
         <h2>🔑 Riddle 3</h2>
         <p>I stand tall in Paris, a symbol of might... Find the sum of my lat and long.</p>
         <input type="text" id="answer3">
-        <button class="button" onclick="checkAnswer(3, '51.1529')">Submit</button>
+        <button class="button" onclick="checkAnswer(3)">Submit</button>
         <p id="message3" class="message"></p>
     </div>
 
@@ -131,7 +131,7 @@
         <h2>🔑 Riddle 4</h2>
         <p>I have weights but I'm not a scale... What am I?</p>
         <input type="text" id="answer4">
-        <button class="button" onclick="checkAnswer(4, 'gym', true)">Submit</button>
+        <button class="button" onclick="checkAnswer(4)">Submit</button>
         <p id="message4" class="message"></p>
     </div>
 
@@ -148,26 +148,53 @@
     </div>
 
     <script>
+        // Custom cipher: Shifting characters by 5 positions
+        const cipherShift = 5;
+        const encryptedAnswers = {
+            1: "c3Bvbmdl", // 'sponge'
+            2: "ZWdn",     // 'egg'
+            3: "NTEuMTUyOQ==", // '51.1529'
+            4: "Z3lt"      // 'gym'
+        };
+
+        // Encrypt function using a simple Caesar shift method
+        function encryptAnswer(answer) {
+            return answer.split('').map(char => String.fromCharCode(char.charCodeAt(0) + cipherShift)).join('');
+        }
+
+        // Decrypt function using the reverse Caesar shift
+        function decryptAnswer(answer) {
+            return answer.split('').map(char => String.fromCharCode(char.charCodeAt(0) - cipherShift)).join('');
+        }
+
+        let attemptCooldown = false;
+
         function startHunt() {
             document.getElementById("welcome-box").style.display = "none";
             document.getElementById("riddle1").style.display = "block";
         }
 
-        function checkAnswer(riddleNum, correctAnswer, isLast = false) {
-            var answer = document.getElementById("answer" + riddleNum).value.trim().toLowerCase();
-            var message = document.getElementById("message" + riddleNum);
+        function checkAnswer(riddleNum) {
+            if (attemptCooldown) {
+                alert("Wait a few seconds before trying again.");
+                return;
+            }
 
-            if (answer === correctAnswer) {
+            attemptCooldown = true;
+            setTimeout(() => { attemptCooldown = false; }, 3000);
+
+            let userAnswer = document.getElementById("answer" + riddleNum).value.trim().toLowerCase();
+            let decryptedAnswer = decryptAnswer(encryptedAnswers[riddleNum]);
+            let message = document.getElementById("message" + riddleNum);
+
+            if (userAnswer === decryptedAnswer) {
                 message.innerHTML = "✅ Correct!";
                 message.className = "message correct";
 
                 setTimeout(() => {
                     document.getElementById("riddle" + riddleNum).style.display = "none";
-                    if (isLast) {
-                        document.getElementById("popup").style.display = "block";
-                    } else {
-                        document.getElementById("riddle" + (riddleNum + 1)).style.display = "block";
-                    }
+                    if (riddleNum === 4) document.getElementById("popup").style.display = "block";
+                    else document.getElementById("riddle" + (riddleNum + 1)).style.display = "block";
                 }, 1000);
             } else {
                 message.innerHTML = "❌ Wrong answer! Try again.";
