@@ -148,65 +148,41 @@
     </div>
 
     <script>
-        // Custom cipher: Shifting characters by 5 positions
-        const cipherShift = 5;
-        const encryptedAnswers = {
-            1: "c3Bvbmdl", // 'sponge'
-            2: "ZWdn",     // 'egg'
-            3: "NTEuMTUyOQ==", // '51.1529'
-            4: "Z3lt"      // 'gym'
-        };
+    // Disable Right-Click
+    document.addEventListener("contextmenu", function (e) {
+        e.preventDefault();
+    });
 
-        // Encrypt function using a simple Caesar shift method
-        function encryptAnswer(answer) {
-            return answer.split('').map(char => String.fromCharCode(char.charCodeAt(0) + cipherShift)).join('');
+    // Disable Developer Tools (F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U)
+    document.addEventListener("keydown", function (e) {
+        if (
+            e.key === "F12" || 
+            (e.ctrlKey && e.shiftKey && (e.key === "I" || e.key === "J")) || 
+            (e.ctrlKey && e.key === "U")
+        ) {
+            e.preventDefault();
         }
+    });
 
-        // Decrypt function using the reverse Caesar shift
-        function decryptAnswer(answer) {
-            return answer.split('').map(char => String.fromCharCode(char.charCodeAt(0) - cipherShift)).join('');
-        }
-
-        let attemptCooldown = false;
-
-        function startHunt() {
-            document.getElementById("welcome-box").style.display = "none";
-            document.getElementById("riddle1").style.display = "block";
-        }
-
-        function checkAnswer(riddleNum) {
-            if (attemptCooldown) {
-                alert("Wait a few seconds before trying again.");
-                return;
-            }
-
-            attemptCooldown = true;
-            setTimeout(() => { attemptCooldown = false; }, 3000);
-
-            let userAnswer = document.getElementById("answer" + riddleNum).value.trim().toLowerCase();
-            let decryptedAnswer = decryptAnswer(encryptedAnswers[riddleNum]);
-            let message = document.getElementById("message" + riddleNum);
-
-            if (userAnswer === decryptedAnswer) {
-                message.innerHTML = "✅ Correct!";
-                message.className = "message correct";
-
-                setTimeout(() => {
-                    document.getElementById("riddle" + riddleNum).style.display = "none";
-                    if (riddleNum === 4) document.getElementById("popup").style.display = "block";
-                    else document.getElementById("riddle" + (riddleNum + 1)).style.display = "block";
-                }, 1000);
+    // Detect Console Opening (Makes the page non-responsive)
+    (function () {
+        let isConsoleOpen = false;
+        let devToolsCheck = setInterval(() => {
+            let start = performance.now();
+            debugger; // Triggers when DevTools is open
+            let end = performance.now();
+            if (end - start > 100) {
+                if (!isConsoleOpen) {
+                    alert("DevTools detected! Access blocked.");
+                    location.reload(); // Reload to prevent inspection
+                }
+                isConsoleOpen = true;
             } else {
-                message.innerHTML = "❌ Wrong answer! Try again.";
-                message.className = "message wrong";
+                isConsoleOpen = false;
             }
-        }
-
-        function showFinalLocation() {
-            document.getElementById("popup").style.display = "none";
-            document.getElementById("final-box").style.display = "block";
-        }
-    </script>
+        }, 1000);
+    })();
+</script>
 
 </body>
 </html>
