@@ -175,50 +175,43 @@
         // Modify the username and password here for backend integration if required
 
         function login() {
-            const username = document.getElementById("username").value;
-            const password = document.getElementById("password").value;
-            const loginMessage = document.getElementById("login-message");
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+    const loginMessage = document.getElementById("login-message");
 
-            if (username === validUsername && password === validPassword) {
-                loginMessage.innerHTML = "✅ Login Successful!";
-                loginMessage.className = "message correct";
-                setTimeout(() => {
-                    document.getElementById("login-box").style.display = "none";
-                    document.getElementById("welcome-box").style.display = "block";
-                }, 1000);
-            } else {
-                loginMessage.innerHTML = "❌ Invalid Username or Password!";
-                loginMessage.className = "message wrong";
-            }
+    // Example API call to Google Apps Script Web App URL
+    fetch("https://script.google.com/macros/s/AKfycbx_fhenE7xa8GhsOsS_3_-mdEXnd8twcWlIzEodM7oLkF8rxWyYjb5AaBulpe3jE0bx/exec", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            action: "login",
+            username: username,
+            password: password,
+        }),
+    })
+    .then((response) => response.json())
+    .then((data) => {
+        if (data.success) {
+            loginMessage.innerHTML = "✅ Login Successful!";
+            loginMessage.className = "message correct";
+            setTimeout(() => {
+                document.getElementById("login-box").style.display = "none";
+                document.getElementById("welcome-box").style.display = "block";
+            }, 1000);
+        } else {
+            loginMessage.innerHTML = "❌ Invalid Username or Password!";
+            loginMessage.className = "message wrong";
         }
+    })
+    .catch((error) => {
+        loginMessage.innerHTML = "❌ Error connecting to backend!";
+        loginMessage.className = "message wrong";
+        console.error("Error:", error);
+    });
+}
 
-        function startHunt() {
-            document.getElementById("welcome-box").style.display = "none";
-            // The first riddle can be displayed here:
-            document.getElementById("riddle1").style.display = "block";
-        }
-
-        function checkAnswer(riddleNum, correctAnswer, isLast = false) {
-            var answerInput = document.getElementById("answer" + riddleNum);
-            var message = document.getElementById("message" + riddleNum);
-            var answer = answerInput.value.toLowerCase().trim();
-
-            if (answer === correctAnswer) {
-                message.innerHTML = "✅ Correct!";
-                message.className = "message correct";
-                setTimeout(() => {
-                    document.getElementById("riddle" + riddleNum).style.display = "none";
-                    if (isLast) {
-                        document.getElementById("popup").style.display = "block";
-                    } else {
-                        document.getElementById("riddle" + (riddleNum + 1)).style.display = "block";
-                    }
-                }, 1000);
-            } else {
-                message.innerHTML = "❌ Wrong answer! Try again.";
-                message.className = "message wrong";
-            }
-        }
 
         function showFinalLocation() {
             document.getElementById("popup").style.display = "none";
