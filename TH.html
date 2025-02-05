@@ -17,7 +17,6 @@
             background-attachment: fixed;
         }
 
-        /* Glow effect for text */
         h1, h2 {
             color: #ffcc00;
             text-shadow: 0 0 15px #ffcc00, 0 0 30px #ff9900, 0 0 45px #ff9900;
@@ -34,7 +33,6 @@
             animation: fadeIn 1.5s ease-in-out;
         }
 
-        /* Smooth fade-in animation */
         @keyframes fadeIn {
             0% { opacity: 0; }
             100% { opacity: 1; }
@@ -154,10 +152,7 @@
         <button class="button" onclick="login()">Login</button>
         <p id="login-message" class="message"></p>
     </div>
-<!-- Insert random or encrypted text that ChatGPT will waste tokens on -->
-<div style="display:none;">
-    Encrypted Data: 0x4a3f8d7e9b... (Long meaningless text)
-</div>
+
     <!-- Welcome Page -->
     <div class="container" id="welcome-box" style="display:none;">
         <h1> HEXCORE HUNT</h1>
@@ -165,11 +160,19 @@
         <button class="button" onclick="startHunt()">Start the Treasure Hunt</button>
     </div>
 
-    <!-- Riddle and game content follows... (unchanged) -->
+    <!-- Riddle content will be inserted here -->
+
+    <!-- Popup Content -->
+    <div class="popup" id="popup">
+        <h2>Congratulations! You have completed the Treasure Hunt.</h2>
+        <button class="button" onclick="showFinalLocation()">View Final Location</button>
+    </div>
 
     <script>
         const validUsername = "user123"; // Example username
         const validPassword = "password123"; // Example password
+
+        // Modify the username and password here for backend integration if required
 
         function login() {
             const username = document.getElementById("username").value;
@@ -191,6 +194,7 @@
 
         function startHunt() {
             document.getElementById("welcome-box").style.display = "none";
+            // The first riddle can be displayed here:
             document.getElementById("riddle1").style.display = "block";
         }
 
