@@ -5,213 +5,88 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Treasure Hunt</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
-        body {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-            background: url('https://i.postimg.cc/gcTVS86D/1738657520755.jpg') no-repeat center center/cover;
-            color: white;
-            text-align: center;
-            background-size: cover;
-            background-attachment: fixed;
-        }
-
-        h1, h2 {
-            color: #ffcc00;
-            text-shadow: 0 0 15px #ffcc00, 0 0 30px #ff9900, 0 0 45px #ff9900;
-        }
-
-        .container {
-            max-width: 700px;
-            margin: 100px auto;
-            padding: 40px;
-            background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
-            animation: fadeIn 1.5s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-
-        p {
-            font-size: 20px;
-        }
-
-        .button {
-            display: inline-block;
-            padding: 15px 30px;
-            font-size: 20px;
-            background: #ffcc00;
-            color: #333;
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: 0.4s;
-            cursor: pointer;
-            border: none;
-            margin-top: 20px;
-        }
-
-        .button:hover {
-            background: #ff9900;
-            transform: scale(1.05);
-        }
-
-        .riddle-box, .final-box {
-            display: none;
-        }
-
-        input[type="text"], input[type="password"] {
-            width: 60%;
-            padding: 15px;
-            font-size: 18px;
-            border-radius: 10px;
-            text-align: center;
-            margin-top: 20px;
-            border: none;
-        }
-
-        .message {
-            font-size: 18px;
-            margin-top: 20px;
-            color: #fff;
-        }
-
-        .correct {
-            color: #32cd32;
-        }
-
-        .wrong {
-            color: #ff6347;
-        }
-
-        .clue-images img {
-            width: 180px;
-            height: 180px;
-            margin: 15px;
-            border-radius: 10px;
-            border: 3px solid white;
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .clue-images img:hover {
-            transform: scale(1.1);
-        }
-
-        /* Popup Style */
-        .popup {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: rgba(0, 0, 0, 0.85);
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.9);
-            text-align: center;
-            color: white;
-            animation: popUp 0.5s ease-out;
-        }
-
-        @keyframes popUp {
-            0% { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
-            100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-        }
-
-        .popup h2 {
-            color: #f2c911;
-            font-size: 30px;
-            margin-bottom: 20px;
-        }
-
-        .popup .button {
-            background: #32cd32;
-            border-radius: 8px;
-            padding: 12px 25px;
-            font-size: 20px;
-        }
-
-        .popup .button:hover {
-            background: #228b22;
-        }
+        /* Your existing styles */
     </style>
 </head>
 <body>
 
-    <!-- Login Page -->
-    <div class="container" id="login-box">
-        <h1> HEXCORE HUNT - Login</h1>
-        <input type="text" id="username" placeholder="Enter Username">
-        <input type="password" id="password" placeholder="Enter Password">
-        <button class="button" onclick="login()">Login</button>
-        <p id="login-message" class="message"></p>
-    </div>
-
     <!-- Welcome Page -->
-    <div class="container" id="welcome-box" style="display:none;">
+    <div class="container" id="welcome-box">
         <h1> HEXCORE HUNT</h1>
         <p>Are you ready for the challenge?</p>
         <button class="button" onclick="startHunt()">Start the Treasure Hunt</button>
     </div>
 
-    <!-- Riddle content will be inserted here -->
-
-    <!-- Popup Content -->
-    <div class="popup" id="popup">
-        <h2>Congratulations! You have completed the Treasure Hunt.</h2>
-        <button class="button" onclick="showFinalLocation()">View Final Location</button>
+    <!-- Login Form (Example) -->
+    <div class="container" id="login-box">
+        <h2>Login</h2>
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+        <button class="button" onclick="submitLogin()">Login</button>
+        <p id="login-message" class="message"></p>
     </div>
 
     <script>
-        const validUsername = "user123"; // Example username
-        const validPassword = "password123"; // Example password
-
-        // Modify the username and password here for backend integration if required
-
-        function login() {
-    const username = document.getElementById("username").value;
-    const password = document.getElementById("password").value;
-    const loginMessage = document.getElementById("login-message");
-
-    // Example API call to Google Apps Script Web App URL
-    fetch("https://script.google.com/macros/s/AKfycbx_fhenE7xa8GhsOsS_3_-mdEXnd8twcWlIzEodM7oLkF8rxWyYjb5AaBulpe3jE0bx/exec", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-            action: "login",
-            username: username,
-            password: password,
-        }),
-    })
-    .then((response) => response.json())
-    .then((data) => {
-        if (data.success) {
-            loginMessage.innerHTML = "✅ Login Successful!";
-            loginMessage.className = "message correct";
-            setTimeout(() => {
-                document.getElementById("login-box").style.display = "none";
-                document.getElementById("welcome-box").style.display = "block";
-            }, 1000);
-        } else {
-            loginMessage.innerHTML = "❌ Invalid Username or Password!";
-            loginMessage.className = "message wrong";
+        function startHunt() {
+            document.getElementById("welcome-box").style.display = "none";
+            document.getElementById("riddle1").style.display = "block";
         }
-    })
-    .catch((error) => {
-        loginMessage.innerHTML = "❌ Error connecting to backend!";
-        loginMessage.className = "message wrong";
-        console.error("Error:", error);
-    });
-}
 
+        function submitLogin() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            fetch("https://script.google.com/macros/s/AKfycbx_fhenE7xa8GhsOsS_3_-mdEXnd8twcWlIzEodM7oLkF8rxWyYjb5AaBulpe3jE0bx/exec", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    username: username,
+                    password: password
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    console.log("Login successful", data);
+                    document.getElementById("login-message").innerHTML = "Login successful!";
+                    document.getElementById("login-message").className = "message correct";
+                    // Proceed to next part of your app
+                } else {
+                    console.log("Login failed", data.message);
+                    document.getElementById("login-message").innerHTML = "Login failed: " + data.message;
+                    document.getElementById("login-message").className = "message wrong";
+                }
+            })
+            .catch(error => {
+                console.error("Error connecting to backend", error);
+                document.getElementById("login-message").innerHTML = "Error connecting to backend!";
+                document.getElementById("login-message").className = "message wrong";
+            });
+        }
+        
+        function checkAnswer(riddleNum, correctAnswer, isLast = false) {
+            var answerInput = document.getElementById("answer" + riddleNum);
+            var message = document.getElementById("message" + riddleNum);
+            var answer = answerInput.value.toLowerCase().trim();
+
+            if (answer === correctAnswer) {
+                message.innerHTML = "✅ Correct!";
+                message.className = "message correct";
+                setTimeout(() => {
+                    document.getElementById("riddle" + riddleNum).style.display = "none";
+                    if (isLast) {
+                        document.getElementById("popup").style.display = "block";
+                    } else {
+                        document.getElementById("riddle" + (riddleNum + 1)).style.display = "block";
+                    }
+                }, 1000);
+            } else {
+                message.innerHTML = "❌ Wrong answer! Try again.";
+                message.className = "message wrong";
+            }
+        }
 
         function showFinalLocation() {
             document.getElementById("popup").style.display = "none";
