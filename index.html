@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hexcore Hunt - Login</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://i.postimg.cc/gcTVS86D/1738657520755.jpg') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 150px auto;
+            padding: 40px;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        h1 {
+            color: #ffcc00;
+            text-shadow: 0 0 15px #ffcc00, 0 0 30px #ff9900;
+        }
+
+        input[type="password"] {
+            width: 80%;
+            padding: 12px;
+            font-size: 18px;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 20px;
+            border: none;
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 25px;
+            font-size: 18px;
+            background: #ffcc00;
+            color: #333;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.4s;
+            cursor: pointer;
+            border: none;
+            margin-top: 20px;
+        }
+
+        .button:hover {
+            background: #ff9900;
+            transform: scale(1.05);
+        }
+
+        .message {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        .wrong {
+            color: #ff6347;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Login Page -->
+    <div class="container" id="login-box">
+        <h1>🔐 Hexcore Hunt Login</h1>
+        <p>Enter the secret password to begin.</p>
+        <input type="password" id="password" placeholder="Enter password">
+        <button class="button" onclick="checkPassword()">Login</button>
+        <p id="login-message" class="message"></p>
+    </div>
+
+    <script>
+        function checkPassword() {
+            var passwordInput = document.getElementById("password").value;
+            var message = document.getElementById("login-message");
+
+            var encodedPassword = atob("c2VjcmV0MjAyNQ=="); // Obfuscated password (Decoded: secret2025)
+
+            if (passwordInput === encodedPassword) {
+                message.innerHTML = "✅ Access Granted!";
+                message.style.color = "#32cd32";
+                setTimeout(() => {
+                    window.location.href = "treasure_hunt.html"; // Redirect to the main game
+                }, 1000);
+            } else {
+                message.innerHTML = "❌ Incorrect password! Try again.";
+                message.className = "message wrong";
+            }
+        }
+    </script>
+
+</body>
+</html>
