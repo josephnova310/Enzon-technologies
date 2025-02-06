@@ -3,96 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Treasure Hunt</title>
+    <title>Secure Treasure Hunt</title>
     <style>
-        /* Your existing styles */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://i.postimg.cc/gcTVS86D/1738657520755.jpg') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+        }
+        .container {
+            max-width: 700px;
+            margin: 100px auto;
+            padding: 40px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+        }
+        input, button {
+            padding: 12px;
+            margin: 10px;
+            font-size: 18px;
+            border-radius: 5px;
+            border: none;
+            text-align: center;
+        }
+        .button {
+            background: #ffcc00;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.4s;
+        }
+        .button:hover {
+            background: #ff9900;
+        }
+        .message {
+            font-size: 18px;
+            margin-top: 15px;
+        }
+        .correct { color: #32cd32; }
+        .wrong { color: #ff6347; }
     </style>
 </head>
 <body>
 
-    <!-- Welcome Page -->
-    <div class="container" id="welcome-box">
-        <h1> HEXCORE HUNT</h1>
-        <p>Are you ready for the challenge?</p>
-        <button class="button" onclick="startHunt()">Start the Treasure Hunt</button>
-    </div>
+<div class="container" id="login-box">
+    <h1>HEXCORE HUNT - Secure Login</h1>
+    <input type="text" id="username" placeholder="Enter Username">
+    <input type="password" id="password" placeholder="Enter Password">
+    <button class="button" onclick="login()">Login</button>
+    <p id="login-message" class="message"></p>
+</div>
 
-    <!-- Login Form (Example) -->
-    <div class="container" id="login-box">
-        <h2>Login</h2>
-        <input type="text" id="username" placeholder="Username">
-        <input type="password" id="password" placeholder="Password">
-        <button class="button" onclick="submitLogin()">Login</button>
-        <p id="login-message" class="message"></p>
-    </div>
+<div class="container" id="welcome-box" style="display:none;">
+    <h1>Welcome to HEXCORE HUNT</h1>
+    <p>Get ready for the ultimate challenge!</p>
+    <button class="button" onclick="startHunt()">Start the Treasure Hunt</button>
+    <button class="button" onclick="logout()">Logout</button>
+</div>
 
-    <script>
-        function startHunt() {
-            document.getElementById("welcome-box").style.display = "none";
-            document.getElementById("riddle1").style.display = "block";
+<script>
+    const validUsers = {
+        "user123": "a19c9e7a9d1f2823e93d07d1c344493be4efcd0cc5ee7c25f7a02dc2de91c0ff" // SHA-256 hash of "password123"
+    };
+
+    async function hashPassword(password) {
+        const encoder = new TextEncoder();
+        const data = encoder.encode(password);
+        const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+        return Array.from(new Uint8Array(hashBuffer))
+                    .map(byte => byte.toString(16).padStart(2, '0'))
+                    .join('');
+    }
+
+    async function login() {
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+        const loginMessage = document.getElementById("login-message");
+
+        if (!username || !password) {
+            loginMessage.innerHTML = "❌ Please enter username and password!";
+            loginMessage.className = "message wrong";
+            return;
         }
 
-        function submitLogin() {
-            var username = document.getElementById("username").value;
-            var password = document.getElementById("password").value;
+        const hashedPassword = await hashPassword(password);
 
-            fetch("https://script.google.com/macros/s/AKfycbx_fhenE7xa8GhsOsS_3_-mdEXnd8twcWlIzEodM7oLkF8rxWyYjb5AaBulpe3jE0bx/exec", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    username: username,
-                    password: password
-                })
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    console.log("Login successful", data);
-                    document.getElementById("login-message").innerHTML = "Login successful!";
-                    document.getElementById("login-message").className = "message correct";
-                    // Proceed to next part of your app
-                } else {
-                    console.log("Login failed", data.message);
-                    document.getElementById("login-message").innerHTML = "Login failed: " + data.message;
-                    document.getElementById("login-message").className = "message wrong";
-                }
-            })
-            .catch(error => {
-                console.error("Error connecting to backend", error);
-                document.getElementById("login-message").innerHTML = "Error connecting to backend!";
-                document.getElementById("login-message").className = "message wrong";
-            });
+        if (validUsers[username] === hashedPassword) {
+            loginMessage.innerHTML = "✅ Login Successful!";
+            loginMessage.className = "message correct";
+            localStorage.setItem("sessionToken", generateToken());
+            setTimeout(() => {
+                document.getElementById("login-box").style.display = "none";
+                document.getElementById("welcome-box").style.display = "block";
+            }, 1000);
+        } else {
+            loginMessage.innerHTML = "❌ Invalid Username or Password!";
+            loginMessage.className = "message wrong";
         }
-        
-        function checkAnswer(riddleNum, correctAnswer, isLast = false) {
-            var answerInput = document.getElementById("answer" + riddleNum);
-            var message = document.getElementById("message" + riddleNum);
-            var answer = answerInput.value.toLowerCase().trim();
+    }
 
-            if (answer === correctAnswer) {
-                message.innerHTML = "✅ Correct!";
-                message.className = "message correct";
-                setTimeout(() => {
-                    document.getElementById("riddle" + riddleNum).style.display = "none";
-                    if (isLast) {
-                        document.getElementById("popup").style.display = "block";
-                    } else {
-                        document.getElementById("riddle" + (riddleNum + 1)).style.display = "block";
-                    }
-                }, 1000);
-            } else {
-                message.innerHTML = "❌ Wrong answer! Try again.";
-                message.className = "message wrong";
-            }
-        }
+    function generateToken() {
+        return Math.random().toString(36).substr(2) + Date.now().toString(36);
+    }
 
-        function showFinalLocation() {
-            document.getElementById("popup").style.display = "none";
-            document.getElementById("final-box").style.display = "block";
+    function checkAuth() {
+        if (localStorage.getItem("sessionToken")) {
+            document.getElementById("login-box").style.display = "none";
+            document.getElementById("welcome-box").style.display = "block";
         }
-    </script>
+    }
+
+    function logout() {
+        localStorage.removeItem("sessionToken");
+        document.getElementById("welcome-box").style.display = "none";
+        document.getElementById("login-box").style.display = "block";
+    }
+
+    window.onload = checkAuth;
+</script>
 
 </body>
 </html>
