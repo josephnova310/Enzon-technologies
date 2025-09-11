@@ -2,114 +2,410 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">    <meta name="Enzon Technologies" content="html, meta tags, web design">
-    <title>Hexcore Hunt - Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solara Energy | Powering a Sustainable Future</title>
+    <meta name="description" content="Reliable, affordable, and eco-friendly solar solutions for homes and businesses. Join the clean energy revolution today.">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
         body {
             font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-            background: url('https://i.postimg.cc/gcTVS86D/1738657520755.jpg') no-repeat center center/cover;
-            color: white;
-            text-align: center;
+            scroll-behavior: smooth;
+        }
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1772&q=80');
             background-size: cover;
-            background-attachment: fixed;
+            background-position: center;
+            min-height: 90vh;
         }
-
-        .container {
-            max-width: 400px;
-            margin: 150px auto;
-            padding: 40px;
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
-            animation: fadeIn 1.5s ease-in-out;
+        .stat-card {
+            transition: transform 0.3s ease;
         }
-
-        @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
+        .stat-card:hover {
+            transform: translateY(-5px);
         }
-
-        h1 {
-            color: #ffcc00;
-            text-shadow: 0 0 15px #ffcc00, 0 0 30px #ff9900;
+        .service-card {
+            transition: all 0.3s ease;
         }
-
-        input[type="password"] {
-            width: 80%;
-            padding: 12px;
-            font-size: 18px;
-            border-radius: 10px;
-            text-align: center;
-            margin-top: 20px;
-            border: none;
-            background: rgba(255, 255, 255, 0.9);
-            color: #333;
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
-
-        .button {
-            display: inline-block;
-            padding: 12px 25px;
-            font-size: 18px;
-            background: #ffcc00;
-            color: #333;
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: 0.4s;
-            cursor: pointer;
-            border: none;
-            margin-top: 20px;
+        .partner-logo {
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: all 0.3s ease;
         }
-
-        .button:hover {
-            background: #ff9900;
-            transform: scale(1.05);
+        .partner-logo:hover {
+            filter: grayscale(0);
+            opacity: 1;
         }
-
-        .message {
-            font-size: 18px;
-            margin-top: 20px;
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
         }
-
-        .wrong {
-            color: #ff6347;
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .timeline-item {
+            border-left: 2px solid #28a745;
+            padding-left: 25px;
+            position: relative;
+        }
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #28a745;
+            left: -9px;
+            top: 0;
         }
     </style>
 </head>
-<body>
+<body class="bg-white">
+    <!-- Header/Navigation -->
+    <header class="fixed w-full bg-white shadow-md z-50">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <a href="#" class="text-2xl font-bold text-green-600">SOLARA ENERGY</a>
+                </div>
+                
+                <nav class="hidden md:flex space-x-10">
+                    <a href="#" class="text-gray-700 hover:text-green-600 font-medium">Home</a>
+                    <a href="#about" class="text-gray-700 hover:text-green-600 font-medium">About Us</a>
+                    <a href="#services" class="text-gray-700 hover:text-green-600 font-medium">Services</a>
+                    <a href="#contact" class="text-gray-700 hover:text-green-600 font-medium">Contact</a>
+                </nav>
+                
+                <div class="flex items-center space-x-4">
+                    <a href="#contact" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full font-medium transition duration-300">Get Quote</a>
+                    <button class="md:hidden text-gray-700">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
 
-    <!-- Login Page -->
-    <div class="container" id="login-box">
-        <h1>🔐 Hexcore Hunt Login</h1>
-        <p>Enter the secret password to begin.</p>
-        <input type="password" id="password" placeholder="Enter password">
-        <button class="button" onclick="checkPassword()">Login</button>
-        <p id="login-message" class="message"></p>
-    </div>
+    <!-- Hero Section -->
+    <section class="hero-section flex items-center pt-20">
+        <div class="container mx-auto px-4 text-center text-white">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">Powering a Sustainable Future with Clean Solar Energy</h1>
+            <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto">Reliable, affordable, and eco-friendly solar solutions for homes and businesses.</p>
+            <a href="#contact" class="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-full text-lg font-semibold inline-block transition duration-300">Get a Free Quote</a>
+        </div>
+    </section>
 
+    <!-- Stats Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="stat-card bg-white p-8 rounded-lg shadow-md text-center">
+                    <div class="text-4xl font-bold text-green-600 mb-2">25+</div>
+                    <div class="text-xl font-medium text-gray-700">Years Expertise</div>
+                </div>
+                <div class="stat-card bg-white p-8 rounded-lg shadow-md text-center">
+                    <div class="text-4xl font-bold text-green-600 mb-2">6,000+</div>
+                    <div class="text-xl font-medium text-gray-700">Happy Customers</div>
+                </div>
+                <div class="stat-card bg-white p-8 rounded-lg shadow-md text-center">
+                    <div class="text-4xl font-bold text-green-600 mb-2">16MW+</div>
+                    <div class="text-xl font-medium text-gray-700">Solar Installed</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">Why Choose Us</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center fade-in">
+                    <div class="bg-green-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-shield-alt text-green-600 text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Reliability</h3>
+                    <p class="text-gray-600">Proven track record of dependable solar solutions with 25+ years of expertise.</p>
+                </div>
+                
+                <div class="text-center fade-in">
+                    <div class="bg-blue-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-microchip text-blue-600 text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Cutting-edge Tech</h3>
+                    <p class="text-gray-600">Latest solar technology for maximum efficiency and energy production.</p>
+                </div>
+                
+                <div class="text-center fade-in">
+                    <div class="bg-yellow-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-tag text-yellow-600 text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Affordable Pricing</h3>
+                    <p class="text-gray-600">Competitive pricing with flexible financing options for all budgets.</p>
+                </div>
+                
+                <div class="text-center fade-in">
+                    <div class="bg-purple-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-headset text-purple-600 text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Professional Support</h3>
+                    <p class="text-gray-600">Dedicated team for installation, maintenance, and ongoing support.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Overview -->
+    <section id="services" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">Our Services</h2>
+            <p class="text-xl text-center text-gray-600 mb-16 max-w-3xl mx-auto">Comprehensive solar energy solutions for residential, commercial, and industrial applications</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="service-card bg-white rounded-xl overflow-hidden shadow-md">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80')"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3">Residential Solar</h3>
+                        <p class="text-gray-600 mb-4">Save on electricity bills and reduce your carbon footprint with customized rooftop solar solutions for your home.</p>
+                        <a href="#" class="text-green-600 font-medium flex items-center">
+                            Learn more
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="service-card bg-white rounded-xl overflow-hidden shadow-md">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1621839673705-6617adf9e890?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1772&q=80')"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3">Commercial Solar</h3>
+                        <p class="text-gray-600 mb-4">Reduce operational costs and achieve sustainability targets with our commercial solar energy systems.</p>
+                        <a href="#" class="text-green-600 font-medium flex items-center">
+                            Learn more
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="service-card bg-white rounded-xl overflow-hidden shadow-md">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1624371066606-cb8938c2a351?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80')"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3">Integrated Solutions</h3>
+                        <p class="text-gray-600 mb-4">Comprehensive energy solutions including solar panels, battery storage, and smart energy management systems.</p>
+                        <a href="#" class="text-green-600 font-medium flex items-center">
+                            Learn more
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">Our Partners</h2>
+            
+            <div class="flex flex-wrap justify-center gap-8 md:gap-16">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Adani_Logo.svg/2560px-Adani_Logo.svg.png" alt="Adani" class="partner-logo h-12">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Logo_Panasonic.png/800px-Logo_Panasonic.png" alt="Panasonic" class="partner-logo h-12">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Havells_Logo.svg/2560px-Havells_Logo.svg.png" alt="Havells" class="partner-logo h-12">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Siemens_2020_logo.svg/800px-Siemens_2020_logo.svg.png" alt="Siemens" class="partner-logo h-12">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Adani_Wilmar_Limited_Logo.svg/1200px-Adani_Wilmar_Limited_Logo.svg.png" alt="Adani Wilmar" class="partner-logo h-12">
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">What Our Customers Say</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-xl shadow-md">
+                    <div class="flex text-yellow-400 mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 mb-6">"Switching to solar with Solara Energy was the best decision we made. Our electricity bills have reduced by 80% and the installation was seamless."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-gray-300 rounded-full mr-4"></div>
+                        <div>
+                            <h4 class="font-semibold">Rajesh Kumar</h4>
+                            <p class="text-gray-500">Kochi, Kerala</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-md">
+                    <div class="flex text-yellow-400 mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 mb-6">"The professional team at Solara Energy designed a perfect commercial solar solution for our factory. We're now saving significantly on operational costs."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-gray-300 rounded-full mr-4"></div>
+                        <div>
+                            <h4 class="font-semibold">Priya Sharma</h4>
+                            <p class="text-gray-500">Bangalore, Karnataka</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-md">
+                    <div class="flex text-yellow-400 mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 mb-6">"The after-sales support is exceptional. Any issues are resolved quickly, and the maintenance team is always available for guidance."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-gray-300 rounded-full mr-4"></div>
+                        <div>
+                            <h4 class="font-semibold">Vikram Singh</h4>
+                            <p class="text-gray-500">Chennai, Tamil Nadu</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="py-16 bg-green-600 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Join the Clean Energy Revolution Today</h2>
+            <p class="text-xl mb-10 max-w-3xl mx-auto">Take the first step towards energy independence and a sustainable future with our expert solar solutions.</p>
+            <a href="#contact" class="bg-white text-green-600 px-8 py-4 rounded-full text-lg font-semibold inline-block transition duration-300 hover:bg-gray-100">Contact Us Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold mb-6">SOLARA ENERGY</h3>
+                    <p class="text-gray-400">Leading provider of solar energy solutions for homes and businesses across India.</p>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-semibold mb-6">Quick Links</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Home</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white">About Us</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white">Services</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-semibold mb-6">Services</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Residential Solar</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Commercial Solar</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Solar Maintenance</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Energy Consulting</a></li>
+                    </ul>
+                </div>
+                
+                <div id="contact">
+                    <h3 class="text-xl font-semibold mb-6">Contact Us</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center">
+                            <i class="fas fa-map-marker-alt mr-3 text-green-500"></i>
+                            <span class="text-gray-400">123 Solar Avenue, Kochi, Kerala</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-3 text-green-500"></i>
+                            <a href="tel:+911234567890" class="text-gray-400 hover:text-white">+91 123 456 7890</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3 text-green-500"></i>
+                            <a href="mailto:info@solaraenergy.com" class="text-gray-400 hover:text-white">info@solaraenergy.com</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400">© 2023 Solara Energy. All rights reserved.</p>
+                <div class="flex space-x-4 mt-4 md:mt-0">
+                    <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/911234567890" target="_blank" class="fixed bottom-6 right-6 bg-green-500 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:bg-green-600 transition duration-300 z-40">
+        <i class="fab fa-whatsapp text-2xl"></i>
+    </a>
+
+    <!-- JavaScript for animations and interactivity -->
     <script>
-        function checkPassword() {
-            var passwordInput = document.getElementById("password").value;
-            var message = document.getElementById("login-message");
-
-            var encodedPassword = atob("c2VjcmV0MjAyNQ=="); // Obfuscated password (Decoded: secret2025)
-
-            if (passwordInput === encodedPassword) {
-                message.innerHTML = "✅ Access Granted!";
-                message.style.color = "#32cd32";
-                setTimeout(() => {
-                    window.location.href = "treasure_hunt.html"; // Redirect to the main game
-                }, 1000);
-            } else {
-                message.innerHTML = "❌ Incorrect password! Try again.";
-                message.className = "message wrong";
-            }
-        }
+        // Fade-in animation on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const fadeInOptions = {
+                threshold: 0.3,
+                rootMargin: "0px 0px -100px 0px"
+            };
+            
+            const fadeInObserver = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, fadeInOptions);
+            
+            fadeElements.forEach(element => {
+                fadeInObserver.observe(element);
+            });
+            
+            // Mobile menu toggle
+            const mobileMenuButton = document.querySelector('button.md\\:hidden');
+            const mobileMenu = document.querySelector('nav');
+            
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+                mobileMenu.classList.toggle('flex');
+                mobileMenu.classList.toggle('absolute');
+                mobileMenu.classList.toggle('top-16');
+                mobileMenu.classList.toggle('left-0');
+                mobileMenu.classList.toggle('w-full');
+                mobileMenu.classList.toggle('bg-white');
+                mobileMenu.classList.toggle('p-4');
+                mobileMenu.classList.toggle('flex-col');
+                mobileMenu.classList.toggle('space-y-4');
+                mobileMenu.classList.toggle('space-x-0');
+            });
+        });
     </script>
-
 </body>
 </html>
