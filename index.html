@@ -1,487 +1,316 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enzon Technologies | Powering a Sustainable Future</title>
-    <meta name="description" content="Reliable, affordable, and eco-friendly solar solutions for homes and businesses. Join the clean energy revolution today.">
-    <!-- Tailwind CSS -->
-    
-  <!-- Basic Meta -->
-  <title>Enzon Technologies - Residential & Commercial Solar Solutions in Kerala</title>
-  <meta name="description" content="Enzon Technologies is Kerala's trusted solar installation company, offering Residential Solar, Commercial Solar, and Solar Maintenance services. Call us today for clean energy solutions.">
-  <meta name="keywords" content="Enzon Technologies, Solar Kerala, Residential Solar, Commercial Solar, Solar Maintenance, Solar Installation Angamaly, Solar Power Kerala">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="index, follow">
-  <meta http-equiv="Content-Language" content="en">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vehicle Inspection Pro</title><style>
 
-  <!-- Canonical -->
-  <link rel="canonical" href="https://enzonindia.com/">
+body{
+font-family:Arial;
+background:#eef2f7;
+padding:10px;
+}
 
-  <!-- Open Graph / Facebook / LinkedIn -->
-  <meta property="og:title" content="Enzon Technologies - Solar Experts in Kerala">
-  <meta property="og:description" content="Trusted solar installation company offering Residential, Commercial, and Maintenance services. Based in Kerala.">
-  <meta property="og:image" content="https://enzonindia.com/images/preview.jpg">
-  <meta property="og:url" content="https://enzonindia.com/">
-  <meta property="og:type" content="website">
+h2{text-align:center}
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Enzon Technologies - Solar Experts in Kerala">
-  <meta name="twitter:description" content="Clean energy solutions: Residential Solar, Commercial Solar, and Solar Maintenance in Kerala.">
-  <meta name="twitter:image" content="https://enzonindia.com/images/preview.jpg">
+.container{
+background:white;
+padding:15px;
+border-radius:8px;
+box-shadow:0 3px 8px rgba(0,0,0,0.2);
+}
 
-  <!-- Schema.org Local Business -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Enzon Technologies",
-    "image": "https://enzonindia.com/images/logo.png",
-    "@id": "https://enzonindia.com",
-    "url": "https://enzonindia.com",
-    "telephone": ["+91-9526188800","+91-9526288800","+91-9846334425"],
-    "email": "enzonindia@gmail.com",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Kalamparamban Towers, opp. Panchayath Building, Mookkannoor, Ezhattumugham",
-      "addressLocality": "Angamaly",
-      "addressRegion": "Kerala",
-      "postalCode": "683577",
-      "addressCountry": "IN"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 10.196,
-      "longitude": 76.387
-    },
-    "openingHours": [
-      "Mo-Sa 09:00-18:00"
-    ],
-    "sameAs": [
-      "https://facebook.com/enzontechnologies",
-      "https://instagram.com/enzontechnologies",
-      "https://linkedin.com/company/enzontechnologies"
-    ],
-    "priceRange": "₹₹",
-    "servesCuisine": "Energy",
-    "department": [
-      { "@type": "LocalBusiness", "name": "Residential Solar" },
-      { "@type": "LocalBusiness", "name": "Commercial Solar" },
-      { "@type": "LocalBusiness", "name": "Solar Maintenance" }
-    ]
-  }
-  </script>
+input,select{
+padding:6px;
+margin:4px;
+}
 
-  <!-- Favicons -->
-  <link rel="icon" href="https://enzonindia.com/images/favicon.ico" type="image/x-icon">
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:10px;
+}
 
+th,td{
+border:1px solid #ddd;
+padding:6px;
+font-size:12px;
+}
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            scroll-behavior: smooth;
-        }
-        .hero-section {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1772&q=80');
-            background-size: cover;
-            background-position: center;
-            min-height: 90vh;
-        }
-        .stat-card {
-            transition: transform 0.3s ease;
-        }
-        .stat-card:hover {
-            transform: translateY(-5px);
-        }
-        .service-card {
-            transition: all 0.3s ease;
-        }
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-        .partner-logo {
-            filter: grayscale(100%);
-            opacity: 0.7;
-            transition: all 0.3s ease;
-        }
-        .partner-logo:hover {
-            filter: grayscale(0);
-            opacity: 1;
-        }
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .timeline-item {
-            border-left: 2px solid #28a745;
-            padding-left: 25px;
-            position: relative;
-        }
-        .timeline-item:before {
-            content: '';
-            position: absolute;
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            background: #28a745;
-            left: -9px;
-            top: 0;
-        }
-    </style>
-</head>
-<body class="bg-white">
-    <!-- Header/Navigation -->
-    <header class="fixed w-full bg-white shadow-md z-50">
-        <div class="container mx-auto px-4 py-3">
-            <div class="flex justify-between items-center">
-                <div class="flex items-center">
-                    <a href="#" class="text-2xl font-bold text-green-600">ENZON TECHNOLOGIES</a>
-                </div>
-                
-                <nav class="hidden md:flex space-x-10">
-                    <a href="#" class="text-gray-700 hover:text-green-600 font-medium">Home</a>
-                    <a href="#about" class="text-gray-700 hover:text-green-600 font-medium">About Us</a>
-                    <a href="#services" class="text-gray-700 hover:text-green-600 font-medium">Services</a>
-                    <a href="#contact" class="text-gray-700 hover:text-green-600 font-medium">Contact</a>
-                </nav>
-                
-                <div class="flex items-center space-x-4">
-                    <a href="#contact" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full font-medium transition duration-300">Get Quote</a>
-                    <button class="md:hidden text-gray-700">
-                        <i class="fas fa-bars text-xl"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </header>
+th{
+background:#1e3a5f;
+color:white;
+}
 
-    <!-- Hero Section -->
-    <section class="hero-section flex items-center pt-20">
-        <div class="container mx-auto px-4 text-center text-white">
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">Powering a Sustainable Future with Clean Solar Energy</h1>
-            <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto">Reliable, affordable, and eco-friendly solar solutions for homes and businesses.</p>
-            <a href="#contact" class="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-full text-lg font-semibold inline-block transition duration-300">Get a Free Quote</a>
-        </div>
-    </section>
+.pass{background:#c8f7c5}
+.fail{background:#ffc9c9}
+.pending{background:#fff3b0}
 
-    <!-- Stats Section -->
-    <section class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="stat-card bg-white p-8 rounded-lg shadow-md text-center">
-                    <div class="text-4xl font-bold text-green-600 mb-2">5+</div>
-                    <div class="text-xl font-medium text-gray-700">Years Expertise</div>
-                </div>
-                <div class="stat-card bg-white p-8 rounded-lg shadow-md text-center">
-                    <div class="text-4xl font-bold text-green-600 mb-2">60+</div>
-                    <div class="text-xl font-medium text-gray-700">Happy Customers</div>
-                </div>
-                <div class="stat-card bg-white p-8 rounded-lg shadow-md text-center">
-                    <div class="text-4xl font-bold text-green-600 mb-2">1MW+</div>
-                    <div class="text-xl font-medium text-gray-700">Solar Installed</div>
-                </div>
-            </div>
-        </div>
-    </section>
+button{
+padding:10px;
+margin:5px;
+background:#1e3a5f;
+color:white;
+border:none;
+cursor:pointer;
+}
 
-    <!-- Why Choose Us -->
-    <section class="py-16">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">Why Choose Us</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="text-center fade-in">
-                    <div class="bg-green-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i class="fas fa-shield-alt text-green-600 text-3xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3">Reliability</h3>
-                    <p class="text-gray-600">Proven track record of dependable solar solutions with 5+ years of expertise.</p>
-                </div>
-                
-                <div class="text-center fade-in">
-                    <div class="bg-blue-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i class="fas fa-microchip text-blue-600 text-3xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3">Cutting-edge Tech</h3>
-                    <p class="text-gray-600">Latest solar technology for maximum efficiency and energy production.</p>
-                </div>
-                
-                <div class="text-center fade-in">
-                    <div class="bg-yellow-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i class="fas fa-tag text-yellow-600 text-3xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3">Affordable Pricing</h3>
-                    <p class="text-gray-600">Competitive pricing with flexible financing options for all budgets.</p>
-                </div>
-                
-                <div class="text-center fade-in">
-                    <div class="bg-purple-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i class="fas fa-headset text-purple-600 text-3xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3">Professional Support</h3>
-                    <p class="text-gray-600">Dedicated team for installation, maintenance, and ongoing support.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+button:hover{
+background:#2f5b90;
+}
 
-    <!-- Services Overview -->
-    <section id="services" class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">Our Services</h2>
-            <p class="text-xl text-center text-gray-600 mb-16 max-w-3xl mx-auto">Comprehensive solar energy solutions for residential, commercial, and industrial applications</p>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="service-card bg-white rounded-xl overflow-hidden shadow-md">
-                    <div class="h-48 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80')"></div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-3">Residential Solar</h3>
-                        <p class="text-gray-600 mb-4">Save on electricity bills and reduce your carbon footprint with customized rooftop solar solutions for your home.</p>
-                        <a href="#" class="text-green-600 font-medium flex items-center">
-                            Learn more
-                            <i class="fas fa-arrow-right ml-2"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="service-card bg-white rounded-xl overflow-hidden shadow-md">
-                    <div class="h-48 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1621839673705-6617adf9e890?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1772&q=80')"></div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-3">Commercial Solar</h3>
-                        <p class="text-gray-600 mb-4">Reduce operational costs and achieve sustainability targets with our commercial solar energy systems.</p>
-                        <a href="#" class="text-green-600 font-medium flex items-center">
-                            Learn more
-                            <i class="fas fa-arrow-right ml-2"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="service-card bg-white rounded-xl overflow-hidden shadow-md">
-                    <div class="h-48 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1624371066606-cb8938c2a351?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80')"></div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-3">Integrated Solutions</h3>
-                        <p class="text-gray-600 mb-4">Comprehensive energy solutions including solar panels, battery storage, and smart energy management systems.</p>
-                        <a href="#" class="text-green-600 font-medium flex items-center">
-                            Learn more
-                            <i class="fas fa-arrow-right ml-2"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+.summary{
+margin-top:10px;
+background:#f5f5f5;
+padding:10px;
+}
 
-    <!-- Partners Section -->
-    <section class="py-16">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">Our Partners</h2>
-            
-            <div class="flex flex-wrap justify-center gap-8 md:gap-16">
-                <img src="image/download.jpeg" alt="Adani" class="partner-logo h-12">
-                <img src="image/anchor-electricals-logo-freelogovectors.net_.png" alt="Panasonic" class="partner-logo h-12">
-                <img src="image/images.png" alt="solis" class="partner-logo h-12">
-                <img src="image/deye.png" alt="deye" class="partner-logo h-12">
-                <img src="image/enphase-logo_black.png" alt="enphase" class="partner-logo h-12">
-                <img src="image/waaree.jpeg" alt="waaree" class="partner-logo h-12">
-                <img src="image/microtek.png" alt="microtek" class="partner-logo h-12">
-                <img src="image/fox ess.jpeg" alt="fox ess" class="partner-logo h-12">
-                <img src="image/sungrow.jpeg" alt="sungrow" class="partner-logo h-12">
-                <img src="image/utl solar.png" alt="utl" class="partner-logo h-12">
-            </div>
-        </div>
-    </section>
+</style></head><body><h2>Vehicle Inspection Pro</h2><div class="container">Technician
+<input id="tech">
 
-    <!-- Testimonials -->
-    <section class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">What Our Customers Say</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-white p-8 rounded-xl shadow-md">
-                    <div class="flex text-yellow-400 mb-4">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="text-gray-600 mb-6">"Switching to solar with Enzon Technologies was the best decision we made. Our electricity bills have reduced by 80% and the installation was seamless."</p>
-                    <div class="flex items-center">
-                        <div class="w-12 h-12 bg-gray-300 rounded-full mr-4"></div>
-                        <div>
-                            <h4 class="font-semibold">Rajesh Kumar</h4>
-                            <p class="text-gray-500">Kochi, Kerala</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="bg-white p-8 rounded-xl shadow-md">
-                    <div class="flex text-yellow-400 mb-4">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="text-gray-600 mb-6">"The professional team at Enzon Technologies designed a perfect commercial solar solution for our factory. We're now saving significantly on operational costs."</p>
-                    <div class="flex items-center">
-                        <div class="w-12 h-12 bg-gray-300 rounded-full mr-4"></div>
-                        <div>
-                            <h4 class="font-semibold">Priya Sharma</h4>
-                            <p class="text-gray-500">Bangalore, Karnataka</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="bg-white p-8 rounded-xl shadow-md">
-                    <div class="flex text-yellow-400 mb-4">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="text-gray-600 mb-6">"The after-sales support is exceptional. Any issues are resolved quickly, and the maintenance team is always available for guidance."</p>
-                    <div class="flex items-center">
-                        <div class="w-12 h-12 bg-gray-300 rounded-full mr-4"></div>
-                        <div>
-                            <h4 class="font-semibold">Vikram Singh</h4>
-                            <p class="text-gray-500">Chennai, Tamil Nadu</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+Vehicle No
+<input id="vehicle">
 
-    <!-- Final CTA -->
-    <section class="py-16 bg-green-600 text-white">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-6">Join the Clean Energy Revolution Today</h2>
-            <p class="text-xl mb-10 max-w-3xl mx-auto">Take the first step towards energy independence and a sustainable future with our expert solar solutions.</p>
-            <a href="#contact" class="bg-white text-green-600 px-8 py-4 rounded-full text-lg font-semibold inline-block transition duration-300 hover:bg-gray-100">Contact Us Now</a>
-        </div>
-    </section>
+Date
+<input type="date" id="date">
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div>
-                    <h3 class="text-xl font-semibold mb-6">ENZON TECHNOLOGIES</h3>
-                    <p class="text-gray-400">Leading provider of solar energy solutions for homes and businesses across India.</p>
-                </div>
-                
-                <div>
-                    <h3 class="text-xl font-semibold mb-6">Quick Links</h3>
-                    <ul class="space-y-3">
-                        <li><a href="#" class="text-gray-400 hover:text-white">Home</a></li>
-                        <li><a href="#about" class="text-gray-400 hover:text-white">About Us</a></li>
-                        <li><a href="#services" class="text-gray-400 hover:text-white">Services</a></li>
-                        <li><a href="#contact" class="text-gray-400 hover:text-white">Contact</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h3 class="text-xl font-semibold mb-6">Services</h3>
-                    <ul class="space-y-3">
-                        <li><a href="#" class="text-gray-400 hover:text-white">Residential Solar</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">Commercial Solar</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">Solar Maintenance</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">Energy Consulting</a></li>
-                    </ul>
-                </div>
-                
-                <div id="contact">
-                    <h3 class="text-xl font-semibold mb-6">Contact Us</h3>
-                    <ul class="space-y-3">
-                        <li class="flex items-center">
-                            <i class="fas fa-map-marker-alt mr-3 text-green-500"></i>
-                            <span class="text-gray-400"> Kalamparamban Towers, opp. Panchayath Building, Mookkannoor, Ezhattumugham, Kerala 683577</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-phone-alt mr-3 text-green-500"></i>
-                            <a href="tel:+911234567890" class="text-gray-400 hover:text-white">+91 95 262 888 00</a>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-envelope mr-3 text-green-500"></i>
-                            <a href="mailto:info@solaraenergy.com" class="text-gray-400 hover:text-white">enzonindia@gmail.com</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="border-t border-gray-800 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-400">© 2025 Enzon Technologies. All rights reserved.</p>
-                <div class="flex space-x-4 mt-4 md:mt-0">
-                    <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-            </div>
-        </div>
-    </footer>
+<br>Search
+<input id="search" onkeyup="searchTable()" placeholder="Search component">
 
-    <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/9526288800" target="_blank" class="fixed bottom-6 right-6 bg-green-500 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:bg-green-600 transition duration-300 z-40">
-        <i class="fab fa-whatsapp text-2xl"></i>
-    </a>
+<table><thead>
+<tr>
+<th>Sl</th>
+<th>System</th>
+<th>Component</th>
+<th>Checkpoint</th>
+<th>Status</th>
+<th>Notes</th>
+<th>Photo</th>
+</tr>
+</thead><tbody id="tableBody"></tbody></table><div class="summary"><b>Dashboard</b><br>
 
-    <!-- JavaScript for animations and interactivity -->
-    <script>
-        // Fade-in animation on scroll
-        document.addEventListener('DOMContentLoaded', function() {
-            const fadeElements = document.querySelectorAll('.fade-in');
-            
-            const fadeInOptions = {
-                threshold: 0.3,
-                rootMargin: "0px 0px -100px 0px"
-            };
-            
-            const fadeInObserver = new IntersectionObserver(function(entries, observer) {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, fadeInOptions);
-            
-            fadeElements.forEach(element => {
-                fadeInObserver.observe(element);
-            });
-            
-            // Mobile menu toggle
-            const mobileMenuButton = document.querySelector('button.md\\:hidden');
-            const mobileMenu = document.querySelector('nav');
-            
-            mobileMenuButton.addEventListener('click', function() {
-                mobileMenu.classList.toggle('hidden');
-                mobileMenu.classList.toggle('flex');
-                mobileMenu.classList.toggle('absolute');
-                mobileMenu.classList.toggle('top-16');
-                mobileMenu.classList.toggle('left-0');
-                mobileMenu.classList.toggle('w-full');
-                mobileMenu.classList.toggle('bg-white');
-                mobileMenu.classList.toggle('p-4');
-                mobileMenu.classList.toggle('flex-col');
-                mobileMenu.classList.toggle('space-y-4');
-                mobileMenu.classList.toggle('space-x-0');
-            });
-        });
-    </script>
-</body>
+PASS : <span id="passCount">0</span><br>
+FAIL : <span id="failCount">0</span><br>
+PENDING : <span id="pendingCount">86</span><br>
+PASS % : <span id="passPercent">0%</span>
+
+</div><button onclick="calculate()">Calculate</button>
+<button onclick="saveInspection()">Save Inspection</button>
+<button onclick="exportCSV()">Export Excel</button>
+<button onclick="window.print()">Export PDF</button>
+
+<h3>Inspection History</h3><ul id="history"></ul></div><script>
+
+const data=[
+[1,"Chassis","Longitudinal Rail","Check straightness"],
+[2,"Chassis","Front Cross Member","Check alignment"],
+[3,"Chassis","Center Cross Member","Check weld"],
+[4,"Chassis","Rear Cross Member","Check coating"],
+[5,"Chassis","Body Mount","Check rubber"],
+[6,"Chassis","Gusset Plate","Check cracks"],
+[7,"Chassis","Front Spring Hanger","Check bracket"],
+[8,"Chassis","Rear Shackle","Check torque"],
+[9,"Chassis","Anti Corrosion","Check thickness"],
+[10,"Chassis","Underbody","Check coverage"],
+
+[11,"Powertrain","Cylinder Block","Check oil leak"],
+[12,"Powertrain","Cylinder Head","Check torque"],
+[13,"Powertrain","Fuel Pump","Check pressure"],
+[14,"Powertrain","Turbocharger","Check play"],
+[15,"Powertrain","Oil Pump","Check pressure"],
+[16,"Powertrain","Water Pump","Check leaks"],
+[17,"Powertrain","Gearbox","Check shift"],
+[18,"Powertrain","Clutch Cover","Check engagement"],
+[19,"Powertrain","Release Bearing","Check rotation"],
+[20,"Powertrain","Engine Mount","Check vibration"],
+
+[21,"Driveline","Front Prop Shaft","Check balance"],
+[22,"Driveline","Universal Joint","Check play"],
+[23,"Driveline","Center Bearing","Check noise"],
+[24,"Driveline","Differential","Check backlash"],
+[25,"Driveline","Axle Housing","Check weld"],
+[26,"Driveline","Axle Shaft","Check wear"],
+[27,"Driveline","Wheel Hub","Check preload"],
+[28,"Driveline","Axle Mount","Check torque"],
+
+[29,"Steering","Upper Column","Check play"],
+[30,"Steering","Lower Column","Check joint"],
+[31,"Steering","Steering Box","Check oil"],
+[32,"Steering","Drag Link","Check play"],
+[33,"Steering","Tie Rod","Check alignment"],
+[34,"Steering","PS Pump","Check pressure"],
+[35,"Steering","Steering Hose","Check leak"],
+
+[36,"Suspension","Front Leaf","Check cracks"],
+[37,"Suspension","Front Shock","Check oil"],
+[38,"Suspension","Spring Hanger","Check alignment"],
+[39,"Suspension","Rear Leaf","Check sag"],
+[40,"Suspension","Rear Shackle","Check bush"],
+[41,"Suspension","Rear Shock","Check mount"],
+[42,"Suspension","Anti Roll Bar","Check bush"],
+
+[43,"Brake","Air Compressor","Check pressure"],
+[44,"Brake","Air Dryer","Check moisture"],
+[45,"Brake","Air Tank","Check corrosion"],
+[46,"Brake","Brake Valve","Check response"],
+[47,"Brake","Brake Drum","Check wear"],
+[48,"Brake","Brake Shoe","Check thickness"],
+[49,"Brake","ABS Sensor","Check gap"],
+
+[50,"Fuel","Fuel Tank","Check leak"],
+[51,"Fuel","Fuel Line","Check crack"],
+[52,"Fuel","Fuel Filter","Check dirt"],
+[53,"Emission","EGR Valve","Check movement"],
+[54,"Emission","DPF","Check soot"],
+[55,"Emission","SCR","Check DEF"],
+
+[56,"Cooling","Radiator","Check leak"],
+[57,"Cooling","Fan","Check blades"],
+[58,"Cooling","Thermostat","Check temp"],
+[59,"HVAC","AC Compressor","Check pressure"],
+[60,"HVAC","Condenser","Check fins"],
+[61,"HVAC","Blower","Check airflow"],
+
+[62,"Electrical","Battery","Check voltage"],
+[63,"Electrical","Alternator","Check charge"],
+[64,"Electrical","Starter","Check crank"],
+[65,"Electrical","ECU","Check diag"],
+[66,"Electrical","Headlamp","Check light"],
+[67,"Electrical","Harness","Check insulation"],
+
+[68,"Exhaust","Manifold","Check leak"],
+[69,"Exhaust","Muffler","Check noise"],
+[70,"Exhaust","Tail Pipe","Check rust"],
+
+[71,"Pneumatic","Air Compressor","Check output"],
+[72,"Pneumatic","Reservoir","Check rust"],
+[73,"Pneumatic","Pressure Valve","Check setting"],
+[74,"Pneumatic","PTO","Check engagement"],
+
+[75,"Wheels","Wheel Rim","Check crack"],
+[76,"Wheels","Tire","Check pressure"],
+[77,"Wheels","Wheel Hub","Check play"],
+[78,"Wheels","Wheel Bearing","Check grease"],
+
+[79,"Safety","ABS Controller","Check diag"],
+[80,"Safety","Fire Extinguisher","Check expiry"],
+[81,"Safety","Side Mirror","Check adjust"],
+[82,"Safety","Emergency Exit","Check operation"],
+
+[83,"Telematics","GPS","Check signal"],
+[84,"Telematics","Display","Check screen"],
+[85,"Telematics","Speaker","Check sound"],
+[86,"Telematics","WiFi Router","Check connection"]
+]
+
+const body=document.getElementById("tableBody")
+
+data.forEach(r=>{
+body.innerHTML+=`
+<tr>
+<td>${r[0]}</td>
+<td>${r[1]}</td>
+<td>${r[2]}</td>
+<td>${r[3]}</td>
+<td>
+<select onchange="updateRow(this)">
+<option value="pending">Pending</option>
+<option value="pass">PASS</option>
+<option value="fail">FAIL</option>
+</select>
+</td>
+<td><input placeholder="notes"></td>
+<td><input type="file"></td>
+</tr>`
+})
+
+function updateRow(s){
+let row=s.parentElement.parentElement
+row.classList.remove("pass","fail","pending")
+row.classList.add(s.value)
+}
+
+function calculate(){
+
+let selects=document.querySelectorAll("select")
+let pass=0,fail=0,pending=0
+
+selects.forEach(s=>{
+if(s.value=="pass")pass++
+else if(s.value=="fail")fail++
+else pending++
+})
+
+let total=selects.length
+
+document.getElementById("passCount").innerText=pass
+document.getElementById("failCount").innerText=fail
+document.getElementById("pendingCount").innerText=pending
+document.getElementById("passPercent").innerText=((pass/total)*100).toFixed(2)+"%"
+
+}
+
+function searchTable(){
+
+let input=document.getElementById("search").value.toLowerCase()
+let rows=document.querySelectorAll("#tableBody tr")
+
+rows.forEach(r=>{
+r.style.display=r.innerText.toLowerCase().includes(input)?"":"none"
+})
+
+}
+
+function saveInspection(){
+
+let tech=document.getElementById("tech").value
+let vehicle=document.getElementById("vehicle").value
+let date=document.getElementById("date").value
+
+let record=tech+" | "+vehicle+" | "+date
+
+let history=JSON.parse(localStorage.getItem("history")||"[]")
+history.push(record)
+
+localStorage.setItem("history",JSON.stringify(history))
+
+loadHistory()
+
+}
+
+function loadHistory(){
+
+let history=JSON.parse(localStorage.getItem("history")||"[]")
+
+let list=document.getElementById("history")
+
+list.innerHTML=""
+
+history.forEach(h=>{
+list.innerHTML+="<li>"+h+"</li>"
+})
+
+}
+
+function exportCSV(){
+
+let rows=document.querySelectorAll("#tableBody tr")
+
+let csv="Sl,System,Component,Checkpoint,Status\n"
+
+rows.forEach(r=>{
+let cols=r.querySelectorAll("td")
+let status=r.querySelector("select").value
+csv+=cols[0].innerText+","+cols[1].innerText+","+cols[2].innerText+","+cols[3].innerText+","+status+"\n"
+})
+
+let blob=new Blob([csv])
+let a=document.createElement("a")
+a.href=URL.createObjectURL(blob)
+a.download="inspection_report.csv"
+a.click()
+
+}
+
+loadHistory()
+
+</script></body>
 </html>
